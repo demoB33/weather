@@ -23,6 +23,6 @@ public class WeatherServiceTest implements WeatherService{
         weatherWind.setDeg(1);
         weather.setMain(weatherMain);
         weather.setWind(weatherWind);
-        return new Weather();
+        return weather;
     }
 }

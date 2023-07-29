@@ -25,11 +25,4 @@ public class WeatherMain {
         this.humidity = humidity;
     }
 
-    @Override
-    public String toString() {
-        return "WeatherMain{" +
-                "temp=" + temp +
-                ", humidity=" + humidity +
-                '}';
-    }
 }

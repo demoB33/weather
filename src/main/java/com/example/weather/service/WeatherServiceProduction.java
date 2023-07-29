@@ -21,11 +21,11 @@ public class WeatherServiceProduction implements WeatherService {
 
     Logger logger = LoggerFactory.getLogger(WeatherServiceProduction.class);
 
-    @Value("${weather.url}")
-    private String weatherUrl;
-
-    @Value("${weather.api-key}")
-    private String weatherApiKey;
+//    @Value("${weather.url}")
+//    private String weatherUrl;
+//
+//    @Value("${weather.api-key}")
+//    private String weatherApiKey;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -33,12 +33,10 @@ public class WeatherServiceProduction implements WeatherService {
     public Weather getWeather(String city) {
         logger.debug("Requesting weather for city : {}", city);
         Weather weather = restTemplate.exchange(
-                weatherUrl,
+                WEATHER_SERVICE_URL,
                 HttpMethod.GET,
                 new HttpEntity<>(HttpHeaders.EMPTY),
-                Weather.class,
-                        city,
-                        weatherApiKey)
+                Weather.class, city)
                 .getBody();
         logger.debug("The weather for {} is {}" , city, weather);
         return weather;
